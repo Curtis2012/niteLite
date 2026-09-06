@@ -1,7 +1,11 @@
 import time
+import yaml
 import paho.mqtt.client as mqtt
 
-BROKER = "cscrpi4B.local"
+# Read from the local (gitignored) secrets.yaml so the real broker
+# hostname never ends up hardcoded in a tracked file.
+with open("secrets.yaml") as f:
+    BROKER = yaml.safe_load(f)["mqtt_broker"]
 TOPICS = ["homeassistant/#", "nitelite/#", "nitelite-7f1880/#"]
 messages = []
 

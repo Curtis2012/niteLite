@@ -1,6 +1,10 @@
+import yaml
 import paho.mqtt.publish as publish
 
-BROKER = "cscrpi4B.local"
+# Read from the local (gitignored) secrets.yaml so the real broker
+# hostname never ends up hardcoded in a tracked file.
+with open("secrets.yaml") as f:
+    BROKER = yaml.safe_load(f)["mqtt_broker"]
 
 # Orphaned retained topics from the old name_add_mac_suffix attempt
 # (superseded by the nitelite2.yaml device). Empty retained payload clears them.
