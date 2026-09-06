@@ -1,6 +1,6 @@
 substitutions:
-  device_name: nitelite
-  friendly_name: "NiteLite"
+  device_name: nitelite2
+  friendly_name: "NiteLite 2"
 
 packages:
   common: !include nitelite-common.yaml
